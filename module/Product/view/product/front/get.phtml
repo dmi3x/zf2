@@ -1,0 +1,19 @@
+<?php
+$title = $product->title;
+$this->headTitle($title);
+$this->headScript()->prependScript("$($('.fancybox').fancybox());")
+?>
+<h1 class="page-header"><?= $this->escapeHtml($title); ?></h1>
+
+<div class="row">
+  <div class="col-sm-6 col-md-2">
+    <a class="fancybox thumbnail" href="<?= $this->imageUrl($product->productId, 'big')?>" target="_blanck">
+      <img src="<?= $this->imageUrl($product->productId, 'medium')?>" />
+    </a>
+  </div>
+  <div class="col-md-6">
+    <h2><span class="label label-primary"><?= $this->currencyFormat($product->price)?></span></h2>
+    <?= $product->description ?>
+  </div>
+</div>
+

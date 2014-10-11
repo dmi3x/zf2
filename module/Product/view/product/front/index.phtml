@@ -1,0 +1,19 @@
+<?php
+$title = 'Smartphones';
+$this->headTitle($title);
+?>
+<h1 class="page-header"><?= $this->escapeHtml($title); ?></h1>
+
+<?php foreach( $products as $product ) {
+    $url = $this->url('product',array('id'=>$product->productId));
+    ?>
+<div class="pull-left panel panel-default" style="width:250px;margin-right:10px;">
+    <div class="panel-heading"><a href="<?= $url?>"><?= $product->title?></a></div>
+    <div class="panel-body text-center">
+        <a href="<?= $url?>">
+            <img src="<?= $this->imageUrl( $product->productId, 'medium' )?>" height="298" />
+        </a>
+    </div>
+    <div class="panel-footer text-center"><?= $this->currencyFormat($product->price)?></div>
+</div>    
+<?php } ?>

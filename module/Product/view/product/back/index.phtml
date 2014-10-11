@@ -1,0 +1,34 @@
+<?php
+$title = 'Products list';
+$this->headTitle($title);
+?>
+<h1 class="page-header"><?= $this->escapeHtml($title); ?></h1>
+<p class="text-right">
+    <a class="btn btn-lg btn-primary" 
+       href="<?= $this->url('cms-product', array('action'=>'add'));?>">Add new product</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Price</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($products as $product) : ?>
+<tr>
+    <td><?= $product->productId;?></td>
+    <td><img src="<?= $this->imageUrl($product->productId, 'small')?>" width="40px"></td>
+    <td><?= $this->escapeHtml($product->title);?></td>
+    <td><?= $this->currencyFormat($product->price);?></td>
+    <td>
+        <a href="<?= $this->url('cms-product',
+            array('action'=>'edit', 'id' => $product->productId));?>">Edit</a>
+        <a href="<?= $this->url('cms-product',
+            array('action'=>'delete', 'id' => $product->productId));?>"
+            onclick="return confirm('Do you realy want to delete product?')">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

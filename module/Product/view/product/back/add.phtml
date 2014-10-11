@@ -1,0 +1,13 @@
+<?php
+$title = 'Add new product';
+$this->headTitle($title);
+?>
+<h1 class="page-header"><?= $this->escapeHtml($title); ?></h1>
+<?php
+$form->setAttribute('action', $this->url('cms-product', array('action' => 'add')));
+$form->get('submit')->setAttribute('class', 'btn btn-lg btn-defsult');
+$form->prepare();
+
+echo $this->form()->openTag($form),
+     $this->formCollection($form),
+     $this->form()->closeTag();

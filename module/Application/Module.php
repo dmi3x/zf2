@@ -11,6 +11,7 @@ namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\I18n\View\Helper\CurrencyFormat;
 
 class Module
 {
@@ -19,6 +20,12 @@ class Module
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+
+        $sm = $e->getApplication()->getServiceManager();
+        $acl = $sm->get('BjyAuthorize\ServiceAuthorize')->getAcl();
+        $role = $sm->get('BjyAuthorize\ServiceAuthorize')->getIdentity();       
+        \Zend\View\Helper\Navigation::setDefaultAcl($acl);
+        \Zend\View\Helper\Navigation::setDefaultRole($role);
     }
 
     public function getConfig()
@@ -36,4 +43,17 @@ class Module
             ),
         );
     }
+    
+    public function getViewHelperConfig()
+    {
+        return array(
+            'initializers' => array(
+                function($helper) {
+                    if ($helper instanceof CurrencyFormat) {
+                        $helper->setCurrencyCode('USD')->setLocale('en_US');
+                    }
+                }
+            ),
+        );
+    }    
 }

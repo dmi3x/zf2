@@ -12,5 +12,39 @@
  */
 
 return array(
-    // ...
+    'db' => array(
+        'driver'  => 'Pgsql',
+        'database'=> 'catalog',
+        'host'    => 'localhost',
+    ),
+    'service_manager' => array(
+        'factories' => array(
+            'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+            'Navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+        ),
+    ),
+    'navigation' => array(
+        'default' => array(
+            array(
+                'label' => 'Home',
+                'route' => 'home',
+                'resource' => 'home',
+            ),
+            array(
+                'label' => 'Manage',
+                'route' => 'cms-product',
+                'resource' => 'cms-product',
+            ),
+            array(
+                'label' => 'Login',
+                'route' => 'zfcuser/login',
+                'resource' => 'zfcuser/login',
+            ), 
+            array(
+                'label' => 'Logout',
+                'route' => 'zfcuser/logout',
+                'resource' => 'zfcuser/logout',
+            ),             
+        )
+    )    
 );
