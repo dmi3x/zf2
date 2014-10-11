@@ -12,7 +12,8 @@ Installation
 
     ```
     psql -Upostgres -c 'CREATE DATABASE catalog'
-    psql -Upostgres < ./install/dump.pgsql.sql```
+    psql -Upostgres < ./install/dump.pgsql.sql
+    ```
 
 3. Run application by `php 5.4+` build-in server:
 
