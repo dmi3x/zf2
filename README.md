@@ -14,7 +14,7 @@ Installation
     psql -Upostgres < ./install/dump.pgsql.sql
     ```
 
-3. Run application by `php` 5.4+ build-in server:
+3. Run application by `php 5.4+` build-in server:
 
 
     ```
