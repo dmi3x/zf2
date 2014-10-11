@@ -18,3 +18,7 @@ Installation
 3. Run application by `php 5.4+` build-in server:
 
     ```php -S localhost:8888 -t public/ public/index.php```
+
+4. Browse application:
+
+    ```http://localhost:8888```
