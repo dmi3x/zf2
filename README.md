@@ -21,4 +21,4 @@ Installation
 
 4. Browse application:
 
-    ```http://localhost:8888```
+    `http://localhost:8888`
