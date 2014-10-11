@@ -4,7 +4,7 @@ Test Application
 Installation
 ------------
 
-1. Cone git repository
+1. Cone git repository:
 
     ```git clone https://github.com/dmi3x/zf2.git```
 
